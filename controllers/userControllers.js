@@ -15,3 +15,12 @@ exports.createUser = async (req, res) => {
         res.status(500).send(error.message)
     }
 }
+
+exports.getAllUsers = async (req, res) => {
+    try {
+        const userList = await User.getAllUsers()
+        res.status(500).send(userList)
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
