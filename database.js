@@ -23,16 +23,6 @@ const initiateDatabase = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
     return db
 }
 

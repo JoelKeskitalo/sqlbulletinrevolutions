@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const database = require('./database')
 
 const userRoutes = require('./routes/userRoutes')
 
@@ -19,7 +18,7 @@ app.use('/users', userRoutes)
 
 
 
-database.initiateDatabase()
+
 
 app.listen(PORT, URL, ()=> {
     console.log(`Server running at ${URL}:${PORT}`)

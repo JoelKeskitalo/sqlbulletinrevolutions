@@ -1,13 +1,21 @@
 const database = require('../database')
 const db = database.initiateDatabase()
 
-class User {
+class UserClass {
 
-    static async createUser() {
+    static async createUser(user, email) {
         return new Promise((resolve, reject) => {
-            // databashantering
+            const sql = `INSERT INTO users (name, email) VALUES(?, ?)`;
+            db.run(sql, [user, email], function (error) {
+                if (error) {
+                    reject(error)
+                } else {
+                    const userId = this.lastID
+                    resolve({ userId, user, email })
+                }
+            })
         })
     }
 }
 
-module.exports = User
+module.exports = UserClass
