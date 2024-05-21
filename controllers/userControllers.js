@@ -12,6 +12,7 @@ exports.createUser = async (req, res) => {
         const newUser = await User.createUser(user, email)
         res.status(200).send(newUser)
     } catch (error) {
+        console.error('Failed to create user:', error.message)
         res.status(500).send(error.message)
     }
 }
@@ -21,6 +22,7 @@ exports.getAllUsers = async (req, res) => {
         const userList = await User.getAllUsers()
         res.status(500).send(userList)
     } catch (error) {
+        console.error('Failed to create user:', error.message)
         res.status(500).send(error.message)
     }
 }

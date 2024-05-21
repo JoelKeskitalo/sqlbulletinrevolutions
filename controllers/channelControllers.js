@@ -13,7 +13,8 @@ exports.createNewChannel = async (req, res) => {
         res.status(200).send(newChannel)
 
     } catch (error) {
-        res.status(500).send(error.message)
+        console.error('Failed to create user:', error.message)
+        res.status(500).send({ error: 'Internal server error'})
     }
 
 }
