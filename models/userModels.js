@@ -1,9 +1,7 @@
-const database = require('../database')
-const db = database.initiateDatabase()
-
+const db = require('../database')
 class UserClass {
 
-    static async createUser(user, email) {
+    static async createUser (user, email) {
         return new Promise((resolve, reject) => {
             const sql = `INSERT INTO users (name, email) VALUES(?, ?)`;
             db.run(sql, [user, email], function (error) {
